@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS ecommerce_stock;
+
+CREATE DATABASE IF NOT EXISTS ecommerce_store;

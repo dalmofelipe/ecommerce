@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:  
+  mysql:
+    image: mysql:latest
+    container_name: mysqldb-docker
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ecommerce_stock
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: 123123
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./docker/mysql:/docker-entrypoint-initdb.d"
+      - ~/dev/mysqldata:/var/lib/mysql
+    networks:
+      - database-network
+
+  adminer:
+    image: adminer
+    container_name: adminer-mysql
+    ports:
+      - "5000:8080"
+    depends_on:
+      - mysql
+    networks:
+      - database-network
+
+networks:
+  database-network:
+
+volumes:
+  mysqldata:
+  docker:
