@@ -1,0 +1,27 @@
+
+:root {
+  --w-aside: 300px;
+  --h-toolbar: 75px;
+  --asidebg-color: rgb(37, 37, 105);
+}
+
+
+.App {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: var(--w-aside) auto;
+  grid-template-rows: var(--h-toolbar) auto;
+  grid-template-areas: 
+    "aside content"
+    "aside content";
+}
+
+
+@media (max-width: 1000px) {
+  .App {
+    grid-template-areas: 
+    "content content"
+    "content content";
+  }
+}

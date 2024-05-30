@@ -1,0 +1,112 @@
+.aside {
+    color: white;
+    background-color: var(--asidebg-color);
+    padding: 0 20px;
+
+    position: fixed;
+    width: var(--w-aside);
+    min-height: 100vh;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    grid-area: aside;
+    z-index: 10;
+
+    /* box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.2); */
+}
+.logo {
+    height: var(--h-toolbar);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    gap: 10px;
+    /* border: 1px solid red; */
+}
+.logo svg {
+    font-size: 3rem;
+}
+.logo span {
+    font-size: 20px;
+}
+
+.aside-menu {
+    height: calc(90% - var(--h-toolbar));
+    margin-top: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.amenu-top {
+    width: 100%;
+}
+.amenu-bottom {
+    width: 100%;   
+}
+.aside-links {
+    width: 100%;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.aside-link {
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    
+    display: block;
+    border-radius: 5px;
+    padding: 10px 20px;
+
+    transition: background-color .2s ease;
+}
+
+.abtn-default {
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.10);
+}
+.abtn-default:hover {
+    color: #fafafa;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.active {
+    color: #fafafa;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.abtn-primary {
+    color: white;
+    background-color: blue;
+}
+
+.abtn-success {
+    color: white;
+    background-color: green;
+}
+.abtn-success:hover {
+    background-color: rgb(0, 64, 0);
+}
+
+.abtn-danger {
+    color: white;
+    background-color: red;
+}
+.abtn-danger:hover {
+    background-color: rgb(155, 0, 0);
+}
+
+
+@media (max-width: 1000px) {
+    .aside {
+        display: none;
+    }
+}
