@@ -14,7 +14,7 @@ public record ProductInput(
     @NotEmpty String name,
     @NotEmpty String brand, 
     @NotEmpty String details,
-    @Min(0) BigDecimal price,
+    @Min(0) BigDecimal salePrice,
     @JsonProperty("category_id") Integer categoryId
 ) {
 

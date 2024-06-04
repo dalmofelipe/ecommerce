@@ -1,9 +1,20 @@
 package com.dalmofelipe.StockMicroSrvc.models;
 
-import jakarta.persistence.*;
-
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TB_PRODUCTS")
@@ -22,22 +33,33 @@ public class Product {
     @Column(nullable = false)
     private String details;
 
-    private BigDecimal price;
+    @Column(name = "sale_price")
+    private BigDecimal salePrice;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "tb_product_supplier",
+        joinColumns = @JoinColumn(name = "product_id"),
+        inverseJoinColumns = @JoinColumn(name = "supplier_id")
+    )
+    private List<Supplier> suppliers;
+
     public Product() {  }
 
-    public Product(Integer id, String name, String brand, String details, 
-            BigDecimal price, Category category) {
+    public Product(Integer id, String name, String brand, 
+            String details, BigDecimal salePrice, Category category,
+            List<Supplier> suppliers) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.details = details;
-        this.price = price;
+        this.salePrice = salePrice;
         this.category = category;
+        this.suppliers = suppliers;
     }
 
     public Integer getId() {
@@ -72,12 +94,12 @@ public class Product {
         this.details = details;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public BigDecimal getSalePrice() {
+        return salePrice;
     }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    public void setSalePrice(BigDecimal newPrice) {
+        this.salePrice = newPrice;
     }
 
     public Category getCategory() {
@@ -109,7 +131,7 @@ public class Product {
                 "brand='" + brand + '\'' +
                 ", name='" + name + '\'' +
                 ", id=" + id +
-                ", price=" + price +
+                ", sale_price=" + salePrice +
                 '}';
     }
 }

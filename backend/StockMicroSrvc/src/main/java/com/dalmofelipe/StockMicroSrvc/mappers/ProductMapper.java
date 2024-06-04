@@ -19,7 +19,7 @@ public class ProductMapper {
         present.setName(updateData.name().isEmpty() ? present.getName() : updateData.name());
         present.setBrand(updateData.brand().isEmpty() ? present.getBrand() : updateData.brand());
         present.setDetails(updateData.details().isEmpty() ? present.getDetails() : updateData.details());
-        present.setPrice(updateData.price() == null ? present.getPrice() : updateData.price());
+        present.setSalePrice(updateData.salePrice() == null ? present.getSalePrice() : updateData.salePrice());
 
         Category category = categoryRepository.findById(updateData.categoryId())
             .orElseThrow(() -> new NotFoundException("category id '"+updateData.categoryId()+"'not found"));

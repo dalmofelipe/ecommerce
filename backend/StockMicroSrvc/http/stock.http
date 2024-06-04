@@ -6,8 +6,10 @@ Content-Type: application/json
 
 {
   "productId": 1,
+  "supplierId": 1,
   "amount": 100,
+  "lotPrice": 230.55,
   "type": "ENTRY",
   "registredAt": "2024-04-01",
-  "validUntil": null
+  "validUntil": "2024-06-01"
 }
