@@ -1,0 +1,57 @@
+@startuml stock
+
+class Product {
+    -id: Integer
+    -name: String
+    - brand: String
+    - details: String
+}
+
+class Category {
+    -id: Integer
+    -name: String
+    -categoryRoot: Categotory
+}
+
+class Supplier {
+    -id: Integer
+    -name: String
+}
+
+class ProductSupplier {
+    -id: Integer
+    -productId: Integer
+    -supplierId: Integer
+}
+
+enum StockType {
+    ENTRY 
+    OUTPUT
+    EXPIRED
+}
+
+class Stock {
+    -id: Integer
+    -productId: Integer
+    -supplierId: Integer
+    -amount: Integer
+    -lotPrice: BigDecimal
+    -type: StockType
+    -registredAt: LocalDate
+    -validUntil: LocalDate
+}
+
+Category "1" - "0..*" Category
+
+Product "*" -- "1" Category
+
+Product "*" - "*" Supplier
+(Product, Supplier) .. ProductSupplier
+
+Stock <|- StockType
+
+Product "1" - "*" Stock
+
+Supplier "1" - "*" Stock
+
+@enduml
