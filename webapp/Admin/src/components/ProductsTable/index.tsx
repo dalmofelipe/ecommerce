@@ -47,7 +47,7 @@ function ProductsTable() {
                                     <td>{p.name}</td>
                                     <td>{p.brand}</td>
                                     <td>{p.details}</td>
-                                    <td>{p.price && p.price.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</td>
+                                    <td>{p.salePrice && p.salePrice.toLocaleString('pt-BR', { style: "currency", currency: "BRL"})}</td> 
                                     <td align="left">{p.category?.name}</td>
                                     <td align="left">
                                         <a href="#">Edit</a> - <a href="#">Excluir</a>
@@ -55,7 +55,7 @@ function ProductsTable() {
                                 </tr>
                             )
                         })
-                        :<tr key={1}><td colSpan={6}>Nenhum produto encontrado...</td></tr>
+                        :   <tr key={0}><td colSpan={6}>Nenhum produto encontrado...</td></tr>
                     }
                 </tbody>
                 </table>

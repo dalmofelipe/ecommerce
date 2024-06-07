@@ -78,9 +78,9 @@ function ProductDetailForm() {
                         <label htmlFor="price">Preço</label>
 
                         <input id="price" type="number" min={0} step={'any'}
-                            {...register("price", { required: true })} />
+                            {...register("salePrice", { required: true })} />
 
-                        {errors.price && <small>Este campo é obrigatório</small>}
+                        {errors.salePrice && <small>Este campo é obrigatório</small>}
                     </div>
 
                     <div className="npform-group">

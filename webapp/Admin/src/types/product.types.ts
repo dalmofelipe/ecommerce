@@ -9,7 +9,7 @@ type Product = {
     name: string
     brand: string
     details: string
-    price: number
+    salePrice: number
     category: Category
 }
 
