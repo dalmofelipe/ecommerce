@@ -1,12 +1,13 @@
-import { useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import ProductService from '../../services/products.service';
-import { Product } from "../../types/product.types";
 import Card from "../Card";
 import "./styles.css";
+import ProductsContext from "../../contexts/ProductsContext";
 
 function ProductsTable() {
 
-    const [ products, setProducts ] = useState([{} as Product])
+    const { products, setProducts } = useContext(ProductsContext);
+    // const [ products, setProducts ] = useState([{} as Product])
 
     let productService = useMemo(() => new ProductService(), [])
 

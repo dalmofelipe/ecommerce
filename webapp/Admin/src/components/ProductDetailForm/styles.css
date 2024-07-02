@@ -57,17 +57,17 @@
 }
 .npbtn-submit {
     color: #fafafa;
-    background-color: green;
+    background-color: var(--btn-success);
 } 
 .npbtn-submit:hover {
     color: #fafafa;
-    background-color: rgb(0, 64, 0);
+    background-color: var(--btn-success-hover);
 }  
 .npbtn-reset {
     color: #fafafa;
-    background-color: rgb(255, 0, 0);
+    background-color: var(--btn-danger);
 }
 .npbtn-reset:hover {
     color: #fafafa;
-    background-color: rgb(155, 0, 0);
+    background-color: var(--btn-danger-hover);
 }

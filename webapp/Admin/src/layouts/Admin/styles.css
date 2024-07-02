@@ -3,6 +3,10 @@
   --w-aside: 300px;
   --h-toolbar: 75px;
   --asidebg-color: rgb(37, 37, 105);
+  --btn-success:  rgb(35, 123, 35);
+  --btn-success-hover:  rgb(0, 89, 0);
+  --btn-danger:  rgb(189, 35, 35);
+  --btn-danger-hover:  rgb(155, 0, 0);
 }
 
 

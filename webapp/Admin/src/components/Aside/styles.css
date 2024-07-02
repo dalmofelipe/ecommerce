@@ -90,18 +90,18 @@
 
 .abtn-success {
     color: white;
-    background-color: green;
+    background-color: var(--btn-success);
 }
 .abtn-success:hover {
-    background-color: rgb(0, 64, 0);
+    background-color: var(--btn-success-hover);
 }
 
 .abtn-danger {
     color: white;
-    background-color: red;
+    background-color: var(--btn-danger);
 }
 .abtn-danger:hover {
-    background-color: rgb(155, 0, 0);
+    background-color: var(--btn-danger-hover);
 }
 
 

@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
-import { SubmitHandler, useForm, Controller } from "react-hook-form";
+import { useContext, useEffect, useState } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 
-import ProductService from '../../services/products.service'
+import ProductsContext from "../../contexts/ProductsContext";
 import { getAllCategories } from "../../services/category.service";
+import ProductService from '../../services/products.service';
 import { Category, Product } from "../../types/product.types";
 import Card from "../Card";
 import "./styles.css";
 
 function ProductDetailForm() {
+    const { products, setProducts } = useContext(ProductsContext);
 
     const {
         register,
@@ -19,11 +21,12 @@ function ProductDetailForm() {
     } = useForm<Product>()
 
     const onSubmit: SubmitHandler<Product> = async (data) => {
-        console.log(data)
-
         let productService = new ProductService()
 
         await productService.saveProduct(data)
+
+        setProducts(await productService.getProducts())
+
         reset()
     }
 
